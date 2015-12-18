@@ -411,6 +411,25 @@ impl RigidBody {
     pub fn ang_acc(&self) -> Orientation {
         self.ang_acc.clone()
     }
+    
+     #[inline]
+    /// Gets the linear force of this rigid body.
+    pub fn get_lin_force(&self) -> Vect {
+        self.lin_force
+    }
+
+    #[inline]
+    /// Gets the angular force of this rigid body.
+    pub fn get_ang_force(&self) -> Orientation {
+        self.ang_force
+    }
+
+    #[inline]
+    /// Sets the linear force of this rigid body.
+    pub fn set_lin_force(&mut self, force: Vect) {
+        self.lin_force = force;
+        self.update_acc();
+    }
 
     /// Sets the angular acceleration of this rigid body.
     ///
